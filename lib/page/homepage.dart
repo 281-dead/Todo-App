@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/page/loginpage.dart';
-import 'package:todo_app/todoModel.dart';
+import 'package:todo_app/model/todoModel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

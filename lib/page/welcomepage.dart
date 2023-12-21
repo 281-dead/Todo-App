@@ -21,7 +21,7 @@ class _WelcomePageState extends State<WelcomePage> {
     switch (prefs.getString('typeofwork')) {
       case 'student':
         Timer(const Duration(seconds: 5), () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentPage()));
+          // Navigator.push(context, MaterialPageRoute(builder: (context) => const StudentPage()));
         });
         break;
       case 'teacher':
