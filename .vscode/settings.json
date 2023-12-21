@@ -1,0 +1,3 @@
+{
+  "dotnet.defaultSolution": "build/windows/todo_app.sln"
+}
