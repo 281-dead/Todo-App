@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/page/loginpage.dart';
 import 'package:todo_app/page/studentpage.dart';
 import 'package:todo_app/page/welcomepage.dart';
+import 'package:todo_app/providers/studentProvider.dart';
 import 'page/homepage.dart';
 import 'package:provider/provider.dart';
 
@@ -8,27 +10,19 @@ void main() {
   runApp(const MyApp());
 }
 
-// class toDoApp extends StatelessWidget {
-//   const toDoApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: StudentScreen(),
-//     );
-//   }
-// }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TaskList(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => TaskList(),
+        ),
+      ],
       child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: StudentPage(),
+        home: WelcomePage(),
       ),
     );
   }

@@ -4,23 +4,7 @@ import 'package:todo_app/page/loginpage.dart';
 import 'package:todo_app/model/todoModel.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/model/taskModel.dart';
-
-class TaskList extends ChangeNotifier {
-  List<Task> lsTask = [];
-  onAdd(String title) {
-    lsTask.add(Task(title, false));
-    notifyListeners();
-  }
-
-  onFinish(int index) {
-    lsTask[index].isFinish = !lsTask[index].isFinish;
-  }
-
-  onDelete(int index) {
-    lsTask.removeAt(index);
-    notifyListeners();
-  }
-}
+import 'package:todo_app/providers/studentProvider.dart';
 
 class StudentPage extends StatefulWidget {
   const StudentPage({super.key});
@@ -52,6 +36,7 @@ class _StudentPageState extends State<StudentPage> {
 
   @override
   Widget build(BuildContext context) {
+    var taskList = Provider.of<TaskList>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF764ABC),
@@ -140,8 +125,7 @@ class _StudentPageState extends State<StudentPage> {
                                             ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('field cannot be left blank')));
                                             return;
                                           } else {
-                                            final tasklist = Provider.of<TaskList>(context, listen: false);
-                                            tasklist.onAdd(title.text);
+                                            taskList.onAdd(title.text);
                                             title.clear();
                                             Navigator.pop(context);
                                           }
